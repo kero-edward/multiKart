@@ -1,0 +1,536 @@
+<!-- breadcrumb -->
+<section class="container mb-5 mt-3 breadcrumbSection">
+    <!-- Top Navbar -->
+    <nav aria-label="breadcrumb" class="navbar">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Collapsible wrapper -->
+            <div class="text-uppercase">
+                <!-- Left links -->
+                <h2>shopping</h2>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="text-capitalize">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb fw-bold">
+                        <li class="breadcrumb-item">
+                            <a routerLink="/home" aria-label="discernible text" class="text-decoration-none">
+                                Home
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">shopping</li>
+                    </ol>
+                </nav>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Top Navbar -->
+</section>
+<!-- breadcrumb -->
+
+<!-- shopping -->
+<section class="container shopping">
+    <div class="row">
+        <!-- filters -->
+        <div class="col-md-3 filters px-4">
+            <div class="row gap-3">
+                <div class="col-md-12 categoryFilter px-4">
+                    <h3 class="text-uppercase m-0">category</h3>
+                    <ul class="categoryList m-0 list-unstyled mt-4 text-capitalize text-muted">
+                        <li (click)="category1Clicked()" [ngClass]="isClicked1.getValue() ? 'clicked':''">
+                            bags
+                        </li>
+                        <li (click)="category2Clicked()" [ngClass]="isClicked2.getValue() ? 'clicked':''">
+                            beauty
+                        </li>
+                        <li (click)="category3Clicked()" [ngClass]="isClicked3.getValue() ? 'clicked':''">
+                            clothes
+                        </li>
+                        <li (click)="category4Clicked()" [ngClass]="isClicked4.getValue() ? 'clicked':''">
+                            electronics
+                        </li>
+                        <li (click)="category5Clicked()" [ngClass]="isClicked5.getValue() ? 'clicked':''">
+                            flower
+                        </li>
+                        <li (click)="category6Clicked()" [ngClass]="isClicked6.getValue() ? 'clicked':''">
+                            furniture
+                        </li>
+                        <li (click)="category7Clicked()" [ngClass]="isClicked7.getValue() ? 'clicked':''">
+                            gym
+                        </li>
+                        <li (click)="category8Clicked()" [ngClass]="isClicked8.getValue() ? 'clicked':''">
+                            movies
+                        </li>
+                        <li (click)="category9Clicked()" [ngClass]="isClicked9.getValue() ? 'clicked':''">
+                            pets
+                        </li>
+                        <li (click)="category10Clicked()" [ngClass]="isClicked10.getValue() ? 'clicked':''">
+                            shoes
+                        </li>
+                        <li (click)="category11Clicked()" [ngClass]="isClicked11.getValue() ? 'clicked':''">
+                            software
+                        </li>
+                        <li (click)="category12Clicked()" [ngClass]="isClicked12.getValue() ? 'clicked':''">
+                            vegetables
+                        </li>
+                        <li (click)="category13Clicked()" [ngClass]="isClicked13.getValue() ? 'clicked':''">
+                            watch
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- filters -->
+        <!-- items by filters -->
+        <div class="col-md-9 px-4">
+            <!--  -->
+            <!-- filter input -->
+            <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+            <!-- filter input -->
+            <!-- products -->
+            <div [hidden]="!isClicked1.getValue()">
+                <div *ngIf="bagsArray.length==0; else display1">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display1>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked2.getValue()">
+                <div *ngIf="beautyArray.length==0; else display2">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display2>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked3.getValue()">
+                <div *ngIf="clothesArray.length==0; else display3">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display3>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked4.getValue()">
+                <div *ngIf="electronicsArray.length==0; else display4">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display4>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked5.getValue()">
+                <div *ngIf="flowerArray.length==0; else display5">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display5>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked6.getValue()">
+                <div *ngIf="furnitureArray.length==0; else display6">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display6>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked7.getValue()">
+                <div *ngIf="gymArray.length==0; else display7">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display7>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked8.getValue()">
+                <div *ngIf="moviesArray.length==0; else display8">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display8>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked9.getValue()">
+                <div *ngIf="petsArray.length==0; else display9">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display9>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked10.getValue()">
+                <div *ngIf="shoesArray.length==0; else display10">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display10>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked11.getValue()">
+                <div *ngIf="softwareArray.length==0; else display11">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display11>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked12.getValue()">
+                <div *ngIf="vegetablesArray.length==0; else display12">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display12>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div [hidden]="!isClicked13.getValue()">
+                <div *ngIf="watchesArray.length==0; else display13">
+                    <h1 class="alert text-danger text-center m-5" role="alert">
+                        Unfortunately, There's no any product here!
+                    </h1>
+                </div>
+                <ng-template #display13>
+                    <div class="row">
+                        <div class="card col-md-4 border-0"
+                            *ngFor="let product of obs | async; trackBy: trackProductById">
+                            <div class="bg-image hover-overlay ripple h-100" data-mdb-ripple-color="light">
+                                <img [src]="product.images[0]" alt="{{product.name}}" class="img-fluid" />
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-start">
+                                <a [routerLink]="['/product', product.id]" aria-label="discernible text"
+                                    class="text-decoration-none">
+                                    <h6 class="card-title">{{ product.name }}</h6>
+                                </a>
+                                <h4 class="card-text">
+                                    {{ product.price | currency }}
+                                    <del [hidden]="!product.oldPrice">
+                                        {{ product.oldPrice | currency }}
+                                    </del>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+            <!-- products -->
+
+            <!-- paginator -->
+            <mat-paginator class="mt-4" [pageSize]="6" [pageSizeOptions]="[3, 6, 9, 12]"></mat-paginator>
+            <!-- paginator -->
+
+        </div>
+        <!-- items by filters -->
+    </div>
+</section>
+<!-- shopping -->

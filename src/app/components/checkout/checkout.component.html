@@ -1,0 +1,125 @@
+<section class="py-5 ">
+
+</section>
+<!-- contactForm -->
+<section class="checkout-form my-5">
+    <h3 class="text-uppercase">checkout</h3>
+    <h2 class="mt-5 pt-5 text-uppercase">billing details</h2>
+    <div class="py-5">
+        <form [formGroup]="contactForm" class="row g-3 p-5">
+            <div class="row">
+
+                <!-- first name -->
+                <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="First Name">
+                    <div *ngIf="(contactUsForm['firstName'].touched && contactUsForm['firstName'].invalid) && contactUsForm['firstName'].errors"
+                        class="text-danger p-0">
+                        <div *ngIf="contactUsForm['firstName'].errors && contactUsForm['firstName'].errors['required']">
+                            First name is
+                            required!</div>
+                        <div
+                            *ngIf="contactUsForm['firstName'].errors && contactUsForm['firstName'].errors['maxlength']">
+                            First name must
+                            be at most 15 character!</div>
+                    </div>
+                </div>
+                <!-- first name -->
+
+                <!-- last name -->
+                <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name">
+                    <div *ngIf="(contactUsForm['lastName'].touched && contactUsForm['lastName'].invalid) && contactUsForm['lastName'].errors"
+                        class="text-danger p-0">
+                        <div *ngIf="contactUsForm['lastName'].errors && contactUsForm['lastName'].errors['required']">
+                            Last name is
+                            required!</div>
+                        <div *ngIf="contactUsForm['lastName'].errors && contactUsForm['lastName'].errors['maxlength']">
+                            Last name must
+                            be at most 15 character!</div>
+                    </div>
+                </div>
+                <!-- last name -->
+
+                <!-- email -->
+                <div class="mb-3 col-md-6">
+                    <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp"
+                        placeholder="Email">
+                    <div *ngIf="(contactUsForm['email'].touched && contactUsForm['email'].invalid) && contactUsForm['email'].errors"
+                        class="text-danger p-0">
+                        <div *ngIf="(contactUsForm['email'].errors && contactUsForm['email'].errors['required'])">Email
+                            is required!</div>
+                        <div *ngIf="contactUsForm['email'].errors && contactUsForm['email'].errors['email']">Email must
+                            be in right format!</div>
+                    </div>
+                </div>
+                <!-- email -->
+
+                <!-- phone -->
+                <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" formControlName="phone" placeholder="Phone">
+                    <div *ngIf="(contactUsForm['phone'].touched && contactUsForm['phone'].invalid) && contactUsForm['phone'].errors"
+                        class="text-danger p-0">
+                        <div *ngIf="contactUsForm['phone'].errors && contactUsForm['phone'].errors['required']">Phone is
+                            required!</div>
+                    </div>
+                </div>
+                <!-- phone -->
+
+                <!-- country -->
+                <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" formControlName="country" placeholder="Country">
+                    <div *ngIf="(contactUsForm['country'].touched && contactUsForm['country'].invalid) && contactUsForm['country'].errors"
+                        class="text-danger p-0">
+                        <div *ngIf="contactUsForm['country'].errors && contactUsForm['country'].errors['required']">
+                            Country is
+                            required!</div>
+                    </div>
+                </div>
+                <!-- country -->
+
+                <!-- city -->
+                <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" formControlName="city" placeholder="City">
+                    <div *ngIf="(contactUsForm['city'].touched && contactUsForm['city'].invalid) && contactUsForm['city'].errors"
+                        class="text-danger p-0">
+                        <div *ngIf="contactUsForm['city'].errors && contactUsForm['city'].errors['required']">City is
+                            required!</div>
+                    </div>
+                </div>
+                <!-- city -->
+
+                <!-- postalCode -->
+                <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" formControlName="postalCode" placeholder="PostalCode">
+                    <div *ngIf="(contactUsForm['postalCode'].touched && contactUsForm['postalCode'].invalid) && contactUsForm['postalCode'].errors"
+                        class="text-danger p-0">
+                        <div
+                            *ngIf="contactUsForm['postalCode'].errors && contactUsForm['postalCode'].errors['required']">
+                            PostalCode is
+                            required!</div>
+                    </div>
+                </div>
+                <!-- postalCode -->
+
+                <!-- address -->
+                <div class="mb-3 col-md-6">
+                    <input type="text" class="form-control" formControlName="address" placeholder="Address">
+                    <div *ngIf="(contactUsForm['address'].touched && contactUsForm['address'].invalid) && contactUsForm['address'].errors"
+                        class="text-danger p-0">
+                        <div *ngIf="contactUsForm['address'].errors && contactUsForm['address'].errors['required']">
+                            Address is
+                            required!</div>
+                    </div>
+                </div>
+                <!-- address -->
+
+            </div>
+
+            <div class="text-center">
+                <button [disabled]="contactForm.invalid" [ngClass]="contactForm.invalid ? 'disableBtn' : '' "
+                    type="submit" (click)="getData()" class="text-capitalize mt-4">subscribe</button>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- contactForm -->

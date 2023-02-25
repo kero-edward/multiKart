@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.owl-carousel .owl-nav .owl-prev {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+    color: #000;
+    background: rgba(255, 255, 255, 0.5) !important;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 50%;
+    padding: 7px 13px;
+    cursor: pointer;
+}
+
+.owl-carousel .owl-nav .owl-next {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+    color: #000;
+    background: rgba(255, 255, 255, 0.5) !important;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 50%;
+    padding: 7px 13px;
+    cursor: pointer;
+}
+
+.owl-carousel .owl-nav .owl-prev:hover,
+.owl-carousel .owl-nav .owl-next:hover {
+    color: #000;
+    background-color: #d6d6d6;
+}
+
+.tabs {
+    .mat-tab-body.mat-tab-body-active {
+        overflow-y: hidden;
+    }
+
+    .mat-tab-body-content {
+        height: 100%;
+        overflow: hidden;
+        padding-top: 15px !important;
+    }
+
+    .mat-ink-bar {
+        background-color: #ff4c3b !important;
+    }
+}

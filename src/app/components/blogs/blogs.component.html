@@ -1,0 +1,119 @@
+<!-- breadcrumb -->
+<section class="container mb-5 mt-3 breadcrumbSection">
+  <!-- Top Navbar -->
+  <nav aria-label="breadcrumb" class="navbar">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Collapsible wrapper -->
+      <div class="text-uppercase">
+        <!-- Left links -->
+        <h2>blogs</h2>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+      <!-- Right elements -->
+      <div class="text-capitalize">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb fw-bold">
+            <li class="breadcrumb-item">
+              <a routerLink="/home" class="text-decoration-none" aria-label="discernible text"> Home </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">blogs</li>
+          </ol>
+        </nav>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Top Navbar -->
+</section>
+<!-- breadcrumb -->
+
+<!-- blogs -->
+<section class="container blogs">
+  <div class="row gap-4">
+    <!-- left sidebar -->
+    <div class="col-md-3 sidebar py-4 px-4">
+      <h4 class="text-uppercase py-2">recent blog</h4>
+      <div class="row gap-2">
+        <div class="col-md-12" *ngFor="let blog of data.blogs; trackBy: blogTrackBy">
+          <div class="card mb-3 border-0">
+            <div class="row g-0">
+              <div class="col-md-5 bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img [src]="blog.image1" class="img-fluid rounded" alt="blog" />
+                <a [routerLink]="['/blog', blog.id]" aria-label="discernible text">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                </a>
+              </div>
+              <div class="col-md-7 card-body-container">
+                <div class="card-body">
+                  <h6 class="card-title">{{ blog.date }}</h6>
+                  <p class="card-text">
+                    <i class="fa-solid fa-thumbs-up"></i> {{ blog.likes }} like
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- left sidebar -->
+
+    <!-- blogs (sidebar) -->
+    <div class="col-md-8 blogsItems">
+      <div class="row gap-3">
+        <!-- filter input -->
+        <mat-form-field>
+          <mat-label>Filter</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input />
+        </mat-form-field>
+        <!-- filter input -->
+        <!-- blogs -->
+        <div class="col-md-12" *ngFor="let blog of obs | async; trackBy: blogTrackBy">
+          <div class="card mb-3 border-0">
+            <div class="row g-0">
+              <div class="col-md-6 bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img [src]="blog.image1" class="img-fluid rounded h-100" alt="blog" />
+                <a [routerLink]="['/blog', blog.id]" aria-label="discernible text">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                </a>
+              </div>
+              <div class="col-md-6 card-body-container">
+                <div class="card-body">
+                  <h6 class="card-text text-uppercase">{{ blog.date }}</h6>
+                  <a [routerLink]="['/blog', blog.id]" aria-label="discernible text">
+                    <h4 class="card-title text-capitalize">
+                      {{ blog.title }}
+                    </h4>
+                  </a>
+                  <div class="blogInfo text-muted text-capitalize my-3">
+                    <div>Posted By : {{ blog.postedBy }}</div>
+                    <div>
+                      <i class="fa-solid fa-thumbs-up"></i>
+                      {{ blog.likes }} like
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-comments"></i>
+                      {{ blog.comments }} comments
+                    </div>
+                  </div>
+                  <p class="card-text text-muted">
+                    {{ cutString(blog.description1) }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- blogs -->
+      </div>
+      <!-- paginator -->
+      <mat-paginator [pageSize]="3" [pageSizeOptions]="[3, 6, 9, 12]"></mat-paginator>
+      <!-- paginator -->
+    </div>
+    <!-- blogs (sidebar) -->
+  </div>
+</section>
+<!-- blogs -->

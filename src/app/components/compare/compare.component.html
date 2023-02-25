@@ -1,0 +1,96 @@
+<!-- breadcrumb -->
+<section class="container mb-5 mt-3 breadcrumbSection">
+    <!-- Top Navbar -->
+    <nav aria-label="breadcrumb" class="navbar">
+        <!-- Container wrapper -->
+        <div class="container align-items-center">
+            <!-- Collapsible wrapper -->
+            <div class="text-uppercase">
+                <!-- Left links -->
+                <h2>compare</h2>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="text-capitalize">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb fw-bold">
+                        <li class="breadcrumb-item">
+                            <a routerLink="/home" aria-label="discernible text" class="text-decoration-none">
+                                Home
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">compare</li>
+                    </ol>
+                </nav>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Top Navbar -->
+</section>
+<!-- breadcrumb -->
+
+<!-- compare -->
+<section class="container compare my-5">
+    <div class="table-responsive" *ngIf="data.compareList.length; else emptyTable">
+        <table class="table">
+            <!-- name -->
+            <tr class="mb-3 text-center">
+                <th class="text-capitalize compareTitle" scope="col">name</th>
+                <td scope="row" *ngFor="let item of data.compareList">{{item?.name}}</td>
+            </tr>
+
+            <!-- image -->
+            <tr class="text-center">
+                <th class="text-capitalize compareTitle" scope="col">image</th>
+                <td scope="row" *ngFor="let item of data.compareList">
+                    <img [src]="item?.images[0]" alt="{{item.name}}">
+                </td>
+            </tr>
+
+            <!-- price -->
+            <tr class="text-center">
+                <th class="text-capitalize compareTitle" scope="col">price</th>
+                <td scope="row" *ngFor="let item of data.compareList">{{ item?.price | currency }}</td>
+            </tr>
+
+            <!-- description -->
+            <tr class="text-center">
+                <th class="text-capitalize compareTitle" scope="col">description</th>
+                <td scope="row" *ngFor="let item of data.compareList">{{ item?.description }}</td>
+            </tr>
+
+            <!-- actions -->
+            <tr class="text-center">
+                <th class="text-capitalize compareTitle" scope="col">actions</th>
+                <td scope="row" *ngFor="let item of data.compareList">
+                    <div class="d-inline-block">
+                        <button class="text-capitalize mt-4">
+                            <i class="fa-brands fa-opencart pe-1"></i> add to cart
+                        </button>
+                    </div>
+                    <div class="d-inline-block" (click)="deleteProductFromCompareList(item?.id)">
+                        <button class="text-capitalize mt-4">
+                            <i class="fa-solid fa-trash"></i> delete
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <ng-template #emptyTable>
+        <h1 class="alert text-danger text-center m-5" role="alert">
+            Unfortunately, There's no any product here! <br>
+            Go to Shopping page to compare products :)
+        </h1>
+        <div class="text-center" routerLink="/shopping">
+            <button class="text-capitalize mt-4">
+                Go To Shopping Page
+            </button>
+        </div>
+    </ng-template>
+</section>
+<!-- compare -->

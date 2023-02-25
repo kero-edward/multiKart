@@ -1,0 +1,74 @@
+.breadcrumbSection {
+    .navbar {
+        h2 {
+            letter-spacing: 0.1em;
+        }
+    }
+
+    .breadcrumb {
+        .breadcrumb-item {
+            a {
+                color: #ff4c3b;
+                font-weight: 700;
+                font-size: 17px;
+            }
+
+            .active {
+                font-weight: 700;
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+.compare {
+    .table-responsive {
+        .table {
+            border-collapse: separate;
+            border-spacing: 25px;
+
+            th,
+            td {
+                padding: 5px;
+            }
+
+            .compareTitle {
+                font-weight: 700;
+                color: #ff4c3b;
+                font-size: 20px;
+            }
+
+            button {
+                background-color: #ff4c3b;
+                color: white;
+                cursor: pointer;
+                padding: 10px;
+                transition: all 0.3s ease-in-out;
+                border: 2px solid #ff4c3b;
+
+                &:hover {
+                    background-color: #fff;
+                    border: 2px solid #ff4c3b;
+                    color: #ff4c3b;
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+button {
+    background-color: #ff4c3b;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #ff4c3b;
+
+    &:hover {
+        background-color: #fff;
+        border: 2px solid #ff4c3b;
+        color: #ff4c3b;
+        transition: all 0.3s ease-in-out;
+    }
+}

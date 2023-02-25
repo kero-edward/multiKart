@@ -1,0 +1,183 @@
+<nav>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light topNav">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Collapsible wrapper -->
+            <div class="text-capitalize">
+                <!-- Left links -->
+                <span class="m-0 pe-5 welcome">Welcome to Our store Multikart</span>
+                <a href="tel:123 - 456 - 7890" aria-label="discernible text" class="text-decoration-none call">
+                    <i class="fa-solid fa-phone pe-1"></i>
+                    call us: 123-456-7890
+                </a>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="rightNav d-flex align-items-center text-capitalize gap-4">
+                <a routerLink="/compare" aria-label="discernible text" class="text-decoration-none">
+                    <i class="fa-solid fa-shuffle pe-1"></i>
+                    <span>compare</span>
+                </a>
+                <a routerLink="/wishlist" aria-label="discernible text" class="text-decoration-none">
+                    <i class="fa-solid fa-heart pe-1"></i>
+                    <span>wishlist</span>
+                </a>
+                <a routerLink="/cart" aria-label="discernible text" class="text-decoration-none">
+                    <div style="width: 100%; display: inline-block" matBadge="{{data.cartQuantity}}"
+                        matBadgeSize="small" matBadgeOverlap="false" class="demo-section">
+                        <i class="fa-brands fa-opencart pe-1"></i>
+                        <span>cart</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Top Navbar -->
+
+    <!-- Routers Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Navbar brand -->
+            <a routerLink="/home" aria-label="discernible text" class="navbar-brand">
+                <img src="../../../../assets/img/logo.png" height="15" alt="multiKart Logo" loading="lazy" />
+            </a>
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-capitalize gap-2 routersLinks">
+                    <li class="nav-item">
+                        <a routerLink="/home" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/shopping" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">shopping</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/blogs" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/faq" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">faq</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/about-us" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/contact-us" aria-label="discernible text" class="nav-link"
+                            routerLink="/contact-us" routerLinkActive="active">contact us</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Routers Navbar -->
+</nav>
+
+<nav class="fixed-top" *ngIf="showOnlyNavBar" @inOut>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light topNav">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Collapsible wrapper -->
+            <div class="text-capitalize">
+                <!-- Left links -->
+                <span class="m-0 pe-5 welcome">Welcome to Our store Multikart</span>
+                <a href="tel:123 - 456 - 7890" aria-label="discernible text" class="text-decoration-none call">
+                    <i class="fa-solid fa-phone pe-1"></i>
+                    call us: 123-456-7890
+                </a>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="rightNav d-flex align-items-center text-capitalize gap-4">
+                <a routerLink="/compare" aria-label="discernible text" class="text-decoration-none">
+                    <i class="fa-solid fa-shuffle pe-1"></i>
+                    <span>compare</span>
+                </a>
+                <a routerLink="/wishlist" aria-label="discernible text" class="text-decoration-none">
+                    <i class="fa-solid fa-heart pe-1"></i>
+                    <span>wishlist</span>
+                </a>
+                <a routerLink="/cart" aria-label="discernible text" class="text-decoration-none">
+                    <div style="width: 100%; display: inline-block" matBadge="{{data.cartQuantity}}"
+                        matBadgeSize="small" matBadgeOverlap="false" class="demo-section">
+                        <i class="fa-brands fa-opencart pe-1"></i>
+                        <span>cart</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Top Navbar -->
+
+    <!-- Routers Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Navbar brand -->
+            <a routerLink="/home" aria-label="discernible text" class="navbar-brand">
+                <img src="../../../../assets/img/logo.png" height="15" alt="multiKart Logo" loading="lazy" />
+            </a>
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-capitalize gap-2 routersLinks">
+                    <li class="nav-item">
+                        <a routerLink="/home" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/shopping" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">shopping</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/blogs" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/faq" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">faq</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/about-us" aria-label="discernible text" class="nav-link"
+                            routerLinkActive="active">about</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/contact-us" aria-label="discernible text" class="nav-link"
+                            routerLink="/contact-us" routerLinkActive="active">contact us</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Routers Navbar -->
+</nav>

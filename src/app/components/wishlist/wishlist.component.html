@@ -1,0 +1,77 @@
+<!-- breadcrumb -->
+<section class="container mb-5 mt-3 breadcrumbSection">
+    <!-- Top Navbar -->
+    <nav aria-label="breadcrumb" class="navbar">
+        <!-- Container wrapper -->
+        <div class="container align-items-center">
+            <!-- Collapsible wrapper -->
+            <div class="text-uppercase">
+                <!-- Left links -->
+                <h2>wishlist</h2>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="text-capitalize">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb fw-bold">
+                        <li class="breadcrumb-item">
+                            <a routerLink="/home" aria-label="discernible text" class="text-decoration-none">
+                                Home
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">wishlist</li>
+                    </ol>
+                </nav>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Top Navbar -->
+</section>
+<!-- breadcrumb -->
+
+<!-- wishlist -->
+<section class="wishlist container my-5">
+    <!-- filter input -->
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input />
+    </mat-form-field>
+    <!-- filter input -->
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Image Column -->
+        <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef> Image </th>
+            <td mat-cell *matCellDef="let element"> <img [src]="element.images[0]"
+                    class="img-fluid py-4 wishlistImage" /> </td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> <i class='fa-solid fa-xmark wishlistDelete'
+                    (click)="deleteProductFromWishList(element.id)"></i> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSize]="3" [pageSizeOptions]="[3, 6, 9, 12]"></mat-paginator>
+</section>
+<!-- wishlist -->

@@ -1,0 +1,96 @@
+.topNav {
+    background-color: #2d2a25 !important;
+    color: #7f786d;
+    font-size: 14px;
+
+    a {
+        color: #7f786d;
+    }
+
+    .call i,
+    .rightNav a i {
+        transition: all 0.5s ease-in-out;
+    }
+
+    .call:hover,
+    .rightNav a:hover {
+        cursor: pointer;
+
+        i {
+            color: #ff4c3b !important;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+
+    .mat-badge-content {
+        background: #ff4c3b;
+        margin-top: 3px;
+    }
+}
+
+.navbar-brand {
+    img {
+        height: 1em;
+    }
+}
+
+.routersLinks {
+    font-size: 18px;
+    letter-spacing: 0.1em;
+}
+
+.active {
+    color: #ff4c3b !important;
+    font-weight: bold;
+}
+
+.nav-item {
+    font-weight: 600;
+}
+
+@media (max-width: 540px) {
+    .topNav {
+        div {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .rightNav {
+            padding-top: 10px;
+            margin: auto;
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .topNav {
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .welcome {
+            padding: 0 !important;
+            margin-bottom: 10px !important;
+        }
+
+        .call {
+            margin-bottom: 10px !important;
+        }
+
+        .rightNav {
+            flex-direction: row;
+            gap: 35px !important;
+        }
+    }
+}
+
+@media (max-width: 280px) {
+    .topNav {
+        .rightNav {
+            gap: 15px !important;
+        }
+    }
+}

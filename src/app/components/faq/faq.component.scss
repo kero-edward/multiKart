@@ -1,0 +1,22 @@
+.breadcrumbSection {
+    .navbar {
+        h2 {
+            letter-spacing: 0.1em;
+        }
+    }
+
+    .breadcrumb {
+        .breadcrumb-item {
+            a {
+                color: #ff4c3b;
+                font-weight: 700;
+                font-size: 17px;
+            }
+
+            .active {
+                font-weight: 700;
+                font-size: 17px;
+            }
+        }
+    }
+}

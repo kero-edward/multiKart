@@ -1,0 +1,160 @@
+<!-- carousel -->
+<owl-carousel-o [options]="carouselOptions">
+
+    <ng-template carouselSlide>
+        <div class="slide carousel-bgImage" style="background-image: url('../../../assets/img/1.jpg');">
+            <div class="carousel-text">
+                <h4 class="text-capitalize text-center animate__animated animate__fadeInDown">welcome to fashion</h4>
+                <h1 class="text-capitalize text-center animate__animated animate__fadeInUp">men fashion</h1>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template carouselSlide>
+        <div class="slide carousel-bgImage img-fluid" style="background-image: url('../../../assets/img/3.jpg');">
+            <div class="carousel-text">
+                <h4 class="text-capitalize text-center animate__animated animate__fadeInDown">welcome to fashion</h4>
+                <h1 class="text-capitalize text-center animate__animated animate__fadeInUp">women fashion</h1>
+            </div>
+        </div>
+    </ng-template>
+
+</owl-carousel-o>
+<!-- carousel -->
+
+
+<!-- categories -->
+<section class="container-fluid">
+    <div class="row categories d-flex justify-content-around gap-2">
+        <div class="col-6 mb-4 mx-1 category p-0" *ngFor="let category of categories">
+            <img [src]="category?.image" [alt]="category?.name">
+            <div class="categoryText text-capitalize">
+                <h4 [hidden]="!category.offer">{{ category?.offer }}</h4>
+                <h2>{{ category?.name }}</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- categories -->
+
+<!-- exclusive products -->
+<section class="specialProducts text-center my-5">
+    <div class="container">
+        <div class="titles">
+            <h4 class="text-capitalize mb-0">exclusive products</h4>
+            <h2 class="text-uppercase mb-0">special products</h2>
+        </div>
+
+        <div class="menu">
+            <ul class="text-uppercase list-unstyled d-flex justify-content-center align-items-center gap-5 mt-4">
+                <li (click)="clickedSlider1()" [ngClass]="isClicked1.getValue() ? 'clicked':''">
+                    new products
+                </li>
+                <li (click)="clickedSlider2()" [ngClass]="isClicked2.getValue() ? 'clicked':''">
+                    best sellers
+                </li>
+                <li (click)="clickedSlider3()" [ngClass]="isClicked3.getValue() ? 'clicked':''">
+                    featured products
+                </li>
+                <li (click)="clickedSlider4()" [ngClass]="isClicked4.getValue() ? 'clicked':''">
+                    on sale
+                </li>
+            </ul>
+        </div>
+
+        <div class="products">
+            <div *ngIf="isClicked1.getValue()">
+                <div class="row">
+                    <div class="card col-md-3" [ngClass]="isClicked1.getValue() ? 'productsAnimate' : ''"
+                        *ngFor="let product of this.newProductArray; let i = index" [hidden]="i>3">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img [src]="product.image" alt="{{product.name}}" class="img-fluid" />
+                        </div>
+                        <div class="card-body text-start">
+                            <h6 class="card-title">{{ product.name }}</h6>
+                            <h4 class="card-text">
+                                {{ product.price | currency }}
+                                <del [hidden]="!product.oldPrice">
+                                    {{ product.oldPrice | currency }}
+                                </del>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="isClicked2.getValue()">
+                <div class="row">
+                    <div class="card col-md-3" [ngClass]="isClicked2.getValue() ? 'productsAnimate' : ''"
+                        *ngFor="let product of this.bestSellerArray; let i = index" [hidden]="i>3">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img [src]="product.image" alt="{{product.name}}" class="img-fluid" />
+                        </div>
+                        <div class="card-body text-start">
+                            <h6 class="card-title">{{ product.name }}</h6>
+                            <h4 class="card-text">
+                                {{ product.price | currency }}
+                                <del [hidden]="!product.oldPrice">
+                                    {{ product.oldPrice | currency }}
+                                </del>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="isClicked3.getValue()">
+                <div class="row">
+                    <div class="card col-md-3" [ngClass]="isClicked3.getValue() ? 'productsAnimate' : ''"
+                        *ngFor="let product of this.featuredProductArray; let i = index" [hidden]="i>3">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img [src]="product.image" alt="{{product.name}}" class="img-fluid" />
+                        </div>
+                        <div class="card-body text-start">
+                            <h6 class="card-title">{{ product.name }}</h6>
+                            <h4 class="card-text">
+                                {{ product.price | currency }}
+                                <del [hidden]="!product.oldPrice">
+                                    {{ product.oldPrice | currency }}
+                                </del>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="isClicked4.getValue()">
+                <div class="row">
+                    <div class="card col-md-3" [ngClass]="isClicked4.getValue() ? 'productsAnimate' : ''"
+                        *ngFor="let product of this.onSaleArray; let i = index" [hidden]="i>3">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img [src]="product.image" alt="{{product.name}}" class="img-fluid" />
+                        </div>
+                        <div class="card-body text-start">
+                            <h6 class="card-title">{{ product.name }}</h6>
+                            <h4 class="card-text">
+                                {{ product.price | currency }}
+                                <del [hidden]="!product.oldPrice">
+                                    {{ product.oldPrice | currency }}
+                                </del>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- exclusive products -->
+
+
+<!-- trends -->
+<section class="trends">
+    <div style="background-image: url('../../../assets/img/2.jpg');" class="trendsImg">
+        <div class="trendsText">
+            <h2>2021</h2>
+            <h3 class="text-uppercase">fashion trends</h3>
+            <h4 class="text-uppercase">special offer</h4>
+        </div>
+    </div>
+</section>
+<!-- trends -->

@@ -1,0 +1,133 @@
+footer {
+    background-color: #2d2a25 !important;
+    color: #7f786d;
+
+    .company p {
+        line-height: 35px;
+    }
+
+    .newsletter {
+        border-right: 1px solid #38352f;
+        border-left: 1px solid #38352f;
+
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .example-form {
+            min-width: 150px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .example-full-width {
+            width: 100%;
+        }
+
+        button {
+            background-color: #ff4c3b;
+            border: 2px solid #ff4c3b;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #fff;
+                color: #ff4c3b;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+
+        .disableBtn {
+            background-color: #777 !important;
+            color: #000 !important;
+            border: 0 !important;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: #777 !important;
+                color: #000 !important;
+                border: 0 !important;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .info {
+        h4 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        a {
+            color: #7f786d !important;
+        }
+
+        .email i,
+        .call i {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .email:hover i,
+        .call:hover i {
+            color: #ff4c3b !important;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    .copyRight a {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .copyRight a:hover {
+        color: #ff4c3b !important;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+@media (max-width: 912px) {
+
+    .company,
+    .info {
+        width: 100% !important;
+        display: block !important;
+    }
+
+    .newsletter {
+        border-right: 0 !important;
+        border-left: 0 !important;
+        border-top: 1px solid #38352f;
+        border-bottom: 1px solid #38352f;
+        padding: 20px 0;
+        margin: 20px 0;
+        width: 100% !important;
+
+        h2 {
+            font-size: 30px !important;
+            display: block !important;
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .newsletter {
+        border-right: 0 !important;
+        border-left: 0 !important;
+        border-top: 1px solid #38352f;
+        border-bottom: 1px solid #38352f;
+        padding: 20px 0;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 280px) {
+    .newsletter {
+        input {
+            width: 250px !important;
+        }
+    }
+}

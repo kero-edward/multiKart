@@ -1,0 +1,25 @@
+$mainColor: #ff4c3b;
+
+.scroll {
+    background-color: $mainColor;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    position: fixed;
+    display: flex;
+    bottom: 50px;
+    right: 30px;
+    z-index: 8;
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    padding: 7px;
+
+    i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+}

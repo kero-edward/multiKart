@@ -1,0 +1,188 @@
+<!-- breadcrumb -->
+<section class="container mb-5 mt-3 breadcrumbSection">
+  <!-- Top Navbar -->
+  <nav aria-label="breadcrumb" class="navbar">
+    <!-- Container wrapper -->
+    <div class="container d-flex align-items-baseline">
+      <!-- Collapsible wrapper -->
+      <div class="text-uppercase">
+        <!-- Left links -->
+        <h2>blog details</h2>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+      <!-- Right elements -->
+      <div class="text-capitalize">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb fw-bold">
+            <li class="breadcrumb-item">
+              <a routerLink="/home" class="text-decoration-none" aria-label="discernible text">
+                Home
+              </a>
+            </li>
+            <li class="breadcrumb-item">
+              <a routerLink="/blogs" class="text-decoration-none" aria-label="discernible text">
+                blogs
+              </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">blog details</li>
+          </ol>
+        </nav>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Top Navbar -->
+</section>
+<!-- breadcrumb -->
+
+<!-- aboutSection -->
+<section class="blogSection container my-5">
+  <img src="../../../assets/img/about-us/about-main.jpg" class="img-fluid" alt="about background">
+  <h3 class="text-uppercase mt-4">
+    {{ blog[0].title }}
+  </h3>
+  <div class="blogInfo text-muted text-capitalize my-3 py-3">
+    <div>
+      {{ blog[0].date }}
+    </div>
+    <div>
+      Posted By : {{ blog[0].postedBy }}
+    </div>
+    <div>
+      <i class="fa-solid fa-thumbs-up"></i> {{ blog[0].likes }} like
+    </div>
+    <div>
+      <i class="fa-solid fa-comments"></i> {{ blog[0].comments }} comment
+    </div>
+  </div>
+  <p class="text-muted">
+    {{ blog[0].description1 }}
+  </p>
+  <div class="row gap-3 my-4 d-flex justify-content-center align-items-center">
+    <div class="col-md-5">
+      <img [src]="blog[0].image1" alt="{{ blog[0].title }}, image" class="img-fluid w-100 h-100">
+    </div>
+    <div class="col-md-5">
+      <img [src]="blog[0].image2" alt="{{ blog[0].title }}, image" class="img-fluid w-100 h-100">
+    </div>
+  </div>
+  <div class="details pb-5">
+    {{ blog[0].description2 }}
+  </div>
+</section>
+<!-- aboutSection -->
+
+<!-- comments -->
+<section class="container comments">
+  <div class="row gap-4">
+    <div class="col-md-12">
+      <div class="card mb-3 border-0">
+        <div class="row g-0">
+          <div class="col-md-1 bg-image">
+            <img src="../../../assets/img/blogs/comments/1.jpg" class="img-fluid rounded-circle" alt="comment avatar">
+          </div>
+          <div class="col-md-11">
+            <div class="card-body">
+              <h6 class="card-title text-uppercase">
+                Mark Jecno
+                <span class="text-capitalize text-muted">( 12 Jannuary 2018 at 1:30AM )</span>
+              </h6>
+              <p class="card-text text-muted">
+                Donec rhoncus massa quis nibh imperdiet dictum. Vestibulum id est sit amet felis
+                fringilla bibendum at at leo. Proin
+                molestie ac nisi eu laoreet. Integer faucibus enim nec ullamcorper tempor. Aenean nec
+                felis dui. Integer tristique odio
+                mi, in volutpat metus posuere eu. Aenean suscipit ipsum nunc, id volutpat lorem
+                hendrerit ac. Sed id elit quam. In ac
+                mauris arcu. Praesent eget lectus sit amet diam vestibulum varius. Suspendisse dignissim
+                mattis leo, nec facilisis erat
+                tempor quis. Vestibulum eu vestibulum ex.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3 border-0">
+        <div class="row g-0">
+          <div class="col-md-1 bg-image">
+            <img src="../../../assets/img/blogs/comments/2.jpg" class="img-fluid rounded-circle" alt="comment avatar">
+          </div>
+          <div class="col-md-11">
+            <div class="card-body">
+              <h6 class="card-title text-uppercase">
+                Mark Jecno
+                <span class="text-capitalize text-muted">( 12 Jannuary 2018 at 1:30AM )</span>
+              </h6>
+              <p class="card-text text-muted">
+                Donec rhoncus massa quis nibh imperdiet dictum. Vestibulum id est sit amet felis
+                fringilla bibendum at at leo. Proin
+                molestie ac nisi eu laoreet. Integer faucibus enim nec ullamcorper tempor. Aenean nec
+                felis dui. Integer tristique odio
+                mi, in volutpat metus posuere eu. Aenean suscipit ipsum nunc, id volutpat lorem
+                hendrerit ac. Sed id elit quam. In ac
+                mauris arcu. Praesent eget lectus sit amet diam vestibulum varius. Suspendisse dignissim
+                mattis leo, nec facilisis erat
+                tempor quis. Vestibulum eu vestibulum ex.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- comments -->
+
+<!-- comment form -->
+<section class="container commentForm">
+  <form [formGroup]="commentForm" class="row g-3 p-5">
+    <div class="row">
+      <div class="mb-3 col-md-6">
+        <input type="text" class="form-control" formControlName="name" placeholder="Name">
+        <div *ngIf="(contactUsForm['name'].touched && contactUsForm['name'].invalid) && contactUsForm['name'].errors"
+          class="text-danger p-0">
+          <div *ngIf="contactUsForm['name'].errors && contactUsForm['name'].errors['required']">
+            Name
+            is
+            required!</div>
+          <div *ngIf="contactUsForm['name'].errors && contactUsForm['name'].errors['maxlength']">
+            Name
+            must
+            be at most 15 character!</div>
+        </div>
+      </div>
+
+      <div class="mb-3 col-md-6">
+        <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp"
+          placeholder="Email">
+        <div *ngIf="(contactUsForm['email'].touched && contactUsForm['email'].invalid) && contactUsForm['email'].errors"
+          class="text-danger p-0">
+          <div *ngIf="(contactUsForm['email'].errors && contactUsForm['email'].errors['required'])">Email
+            is required!</div>
+          <div *ngIf="contactUsForm['email'].errors && contactUsForm['email'].errors['email']">Email must
+            be in right format!</div>
+        </div>
+      </div>
+
+      <div class="mb-3 col-md-12">
+        <textarea class="form-control" rows="4" formControlName="comment" placeholder="Comment"></textarea>
+        <div
+          *ngIf="(contactUsForm['comment'].touched && contactUsForm['comment'].invalid) && contactUsForm['comment'].errors"
+          class="text-danger p-0">
+          <div *ngIf="contactUsForm['comment'].errors && contactUsForm['comment'].errors['required']">
+            Comment is required!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button [ngClass]="commentForm.invalid ? 'disableBtn' : '' " type="submit" (click)="getData()"
+        class="text-capitalize mt-4">subscribe</button>
+    </div>
+  </form>
+</section>
+<!-- comment form -->

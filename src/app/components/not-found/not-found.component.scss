@@ -1,0 +1,38 @@
+.notFound {
+    padding: 130px 0 140px;
+    text-align: center;
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 200px;
+        font-weight: 900;
+        margin: 0;
+        line-height: 0.8;
+        color: #aaa;
+    }
+
+    h2 {
+        color: #aaa;
+        font-weight: 500;
+        letter-spacing: 3px;
+        margin: 40px 0;
+        font-size: 36px;
+        text-transform: uppercase;
+        line-height: 1;
+    }
+
+    button {
+        background-color: #ff4c3b;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        transition: all 0.3s ease-in-out;
+        border: 2px solid #ff4c3b;
+
+        &:hover {
+            background-color: #fff;
+            color: #ff4c3b;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}

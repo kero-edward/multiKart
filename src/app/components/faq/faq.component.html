@@ -1,0 +1,53 @@
+<!-- breadcrumb -->
+<section class="container mb-5 mt-3 breadcrumbSection">
+    <!-- Top Navbar -->
+    <nav aria-label="breadcrumb" class="navbar">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Collapsible wrapper -->
+            <div class="text-uppercase">
+                <!-- Left links -->
+                <h2>faq</h2>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="text-capitalize">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb fw-bold">
+                        <li class="breadcrumb-item">
+                            <a routerLink="/home" class="text-decoration-none" aria-label="discernible text">
+                                Home
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">faq</li>
+                    </ol>
+                </nav>
+            </div>
+            <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Top Navbar -->
+</section>
+<!-- breadcrumb -->
+
+<!-- faq -->
+<div class="accordion container mt-3 mb-5" id="accordionExample">
+    <div class="accordion-item my-3" *ngFor="let faq of faqs">
+        <h2 class="accordion-header" [id]="faq.relatedID">
+            <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                [attr.data-mdb-target]="'#'+faq.relatedDataTarget" aria-expanded="true"
+                [attr.aria-controls]="faq.relatedDataTarget">
+                Accordion Item #1
+            </button>
+        </h2>
+        <div [id]="faq.relatedDataTarget" class="accordion-collapse collapse" [attr.aria-labelledby]="faq.relatedID"
+            data-mdb-parent="#accordionExample">
+            <div class="accordion-body">
+                {{ faq.description}}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- faq -->
